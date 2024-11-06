@@ -48,14 +48,22 @@ CREATE TABLE IF NOT EXISTS `menu` (
 
 
 INSERT INTO `menu` (`url`, `nev`, `szulo`, `jogosultsag`, `sorrend`) VALUES
-('admin', 'Admin', '', '001', 80),
-('alapinfok', 'Alapinfók', 'elerhetoseg', '111', 40),
-('belepes', 'Belépés', '', '100', 60),
-('elerhetoseg', 'Elérhetőség', '', '111', 20),
-('kiegeszitesek', 'Kiegészítések', 'elerhetoseg', '011', 50),
-('kilepes', 'Kilépés', '', '011', 70),
-('linkek', 'Linkek', '', '100', 30),
-('nyitolap', 'Nyitólap', '', '111', 10);
+('admin', 'Admin', '', '001', 120),
+('belepes', 'Belépés', '', '100', 100),
+('kilepes', 'Kilépés', '', '011', 110),
+('nyitolap', 'Nyitólap', '', '111', 10),
+('pdf', 'PDF', '', '100', 90),
+('rest', 'Restful', '', '100', 60),
+('rest-kliens', 'Restful-kliens', 'rest', '100', 80),
+('rest-server', 'Restful-server', 'rest', '100', 70),
+('soap', 'SOAP', '', '111', 20),
+('soap-kliens', 'SOAP-kliens', 'soap', '111', 40),
+('soap-mnb', 'SOAP-MNB', 'soap', '111', 50),
+('soap-server', 'SOAP-server', 'soap', '111', 30);
+
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`url`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
