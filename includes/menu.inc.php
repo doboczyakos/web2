@@ -56,7 +56,7 @@ Class Menu {
                     $submenu = "<ul>";
                 }
 
-                $submenu .="<li><a href=\"#\">".$menuitem[0]."</a></li>";
+                $submenu .="<li><a href='".SITE_ROOT.$menuindex."' >".$menuitem[0]."</a></li>";
             }
             else
             {
@@ -74,35 +74,6 @@ Class Menu {
 
         $menu.="</ul>";
         return $menu;
-    }
-
-    public static function getMenu2($sItems) {
-        $submenu = "";
-        
-        $menu = "<ul>";
-        // $menuindex - key and $menuitem is value
-        foreach(self::$menu as $menuindex => $menuitem)       
-        {
-            // todo icons could come from the db too
-            // icons: fa-home, fa-cog, fa-retweet, fa-sitemap, fa-envelope, fa-phone
-
-            // menuitem[0] -> main menu items, menuitem[1] -> sub items for the menu
-            if($menuitem[1] == "")
-            { 
-                $menu.= "<li><a  class=\"icon solid fa-home\" href='".SITE_ROOT.$menuindex."' ".($menuindex==$sItems[0]? "class='selected'":"")."><span>".$menuitem[0]."</span></a></li>"; 
-            }
-            else if($menuitem[1] == $sItems[0])
-            { 
-                // $submenu.= "<li><a href='".SITE_ROOT.$sItems[0]."/".$menuindex."' ".($menuindex==$sItems[1]? "class='selected'":"").">".$menuitem[0]."</a></li>";
-                $submenu.= "<li><a href='".SITE_ROOT.$sItems[0]."/".$menuindex."' ".($menuindex==$sItems[1]? "class='selected'":"").">".$menuitem[0]."</a></li>";
-            }
-        }
-        $menu.="</ul>";
-        
-        if($submenu != "")
-            $submenu = "<ul>".$submenu."</ul>";
-        
-        return $menu.$submenu;;
     }
 }
 

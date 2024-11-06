@@ -40,9 +40,11 @@ if($request != "")
  
 // finding the controller for the requested view  
 $controllerfile = $page.($subpage != "" ? "_".$subpage : "");
+$controllerfile = str_replace("-","_","$controllerfile");
 $target = SERVER_ROOT.'controllers/'.$controllerfile.'.php';
 if(! file_exists($target))
 {
+	echo "$target";
 	$controllerfile = "error404";
 	$target = SERVER_ROOT.'controllers/error404.php';
 }

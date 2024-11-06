@@ -1,8 +1,8 @@
 <?php
 
-class Elerhetoseg_Controller
+class Soap_Controller
 {
-	public $baseName = 'elerhetoseg';
+	public $baseName = 'soap';
 	public function main(array $vars) 
 	{
 		$view = new View_Loader($this->baseName."_main");

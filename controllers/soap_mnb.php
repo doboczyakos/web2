@@ -1,8 +1,8 @@
 <?php
 
-class Elerhetoseg_kiegeszitesek_Controller
+class Soap_mnb_Controller
 {
-	public $baseName = 'elerhetoseg_kiegeszitesek'; 
+	public $baseName = 'soap_mnb'; 
 	public function main(array $vars)
 	{
 		$view = new View_Loader($this->baseName."_main");
