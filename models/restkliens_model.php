@@ -1,6 +1,6 @@
 <?php
 class RestKliens_Model {
-    private $apiUrl = SITE_ROOT . "rest_server";
+    private $apiUrl = SITE_URL . SITE_ROOT . "rest_server";
 
     private function sendRequest($method, $url, $data = null) {
         $ch = curl_init();
