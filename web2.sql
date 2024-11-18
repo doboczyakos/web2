@@ -61,8 +61,6 @@ INSERT INTO `menu` (`url`, `nev`, `szulo`, `jogosultsag`, `sorrend`) VALUES
 ('soap-mnb', 'SOAP-MNB', 'soap', '111', 50),
 ('soap-server', 'SOAP-server', 'soap', '111', 30);
 
-ALTER TABLE `menu`
-  ADD PRIMARY KEY (`url`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

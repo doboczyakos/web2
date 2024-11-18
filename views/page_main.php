@@ -8,7 +8,7 @@
         
         <!-- theme: https://html5up.net/strongly-typed -->
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="<?php echo SITE_ROOT?>assets/css/main.css" />
     </head>
 
     <body class="homepage is-preload">
@@ -51,12 +51,12 @@
         </div>
 
 		<!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.dropotron.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+        <script src="<?php echo SITE_ROOT?>assets/js/jquery.min.js"></script>
+        <script src="<?php echo SITE_ROOT?>assets/js/jquery.dropotron.min.js"></script>
+        <script src="<?php echo SITE_ROOT?>assets/js/browser.min.js"></script>
+        <script src="<?php echo SITE_ROOT?>assets/js/breakpoints.min.js"></script>
+        <script src="<?php echo SITE_ROOT?>assets/js/util.js"></script>
+        <script src="<?php echo SITE_ROOT?>assets/js/main.js"></script>
         
     </body>
 </html>
