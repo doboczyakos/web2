@@ -4,7 +4,7 @@
 <h3>
     <br>
         <?php
-        if ($viewData['eredmeny'] == "ERROR") {
+        if ($viewData == NULL) {
             echo "ERROR! Could not acces database!";
             return;
         }
@@ -13,31 +13,19 @@
 </h3>
 
 <?php
-
 $headers = array("nev", "nem", "szuldat", "nemzet"); 
 
-// echo getcwd();
-$myfile = fopen("../soap/server.php", "w") or die("Unable to create server!");
-$txt="<?php \n".
-"    class Szolgaltatas { \n".
-"        public function adatok()  { \n".
-"            \$arr = array();";
-
-foreach ($viewData['uzenet'] as $data_cell) {
-    $txt.="\$arr[] = array(";
-    foreach ($headers as $header) {
-       $txt .= "'$header' => '$data_cell[$header]',";
+foreach ($viewData as $data_cell) {
+    if (!is_array($data_cell) || count($data_cell) != 4) { 
+        continue;
     }
-    $txt .= ");";
+
+    foreach ($headers as $header) {
+        echo $data_cell[$header] . " ";
+    }
+
+    echo "<br>";
 }
 
-$txt .= " return \$arr; }}".
-"\$options = array(\"uri\" => \"http://localhost/soap/server.php\");".
-"\$server = new SoapServer(null, \$options);".
-"\$server->setClass('Szolgaltatas');".
-"\$server->handle(); ?>";
-
-fwrite($myfile, $txt);
-fclose($myfile);
-echo "Server elkeszitve!";
+echo "<br>Server elkeszitve!<br>";
 ?>

@@ -2,7 +2,14 @@
 
 class SoapServer_Model
 {
-	public function get_data($vars)
+    public static $dbConnection;
+
+	public static function getConn()
+	{
+		return self::$dbConnection;
+	}
+
+	public static function get_data($vars)
 	{
 		$retData['eredmeny'] = "";
 
@@ -31,6 +38,33 @@ class SoapServer_Model
 
 		return $retData;
 	}
+	
+	public function getAdat() {
+		try {
+			// weben
+			$con = new PDO('mysql:host=mysql.omega'.';dbname=sbda', 'sbda', 'GAMF2024', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+			
+			// localban
+			// $con = new PDO('mysql:host=localhost'.';dbname=web2', 'root', '', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+			$con->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
+		
+			$sql = "SELECT nev,nem,szuldat,nemzet FROM `pilota` WHERE 1";
+			$stmt = $con->query($sql);
+			$pilots = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		catch (PDOException $e) {
+		}
+		
+		return $pilots;
+    }
 }
+
+
+$options = array("uri" => "http://sbda.nhely.hu/models/soapserver_model.php");
+// $options = array("uri" => "http://localhost/web2/models/soapserver_model.php");
+$server = new SoapServer(null, $options);
+$server->setClass('SoapServer_Model');
+// $server->setObject(new SoapServer_Model);
+$server->handle();
 
 ?>

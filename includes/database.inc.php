@@ -1,9 +1,16 @@
 <?php
-    define('HOST', 'localhost');
-    define('DATABASE', 'web2');
-    define('USER', 'root');
-    define('PASSWORD', '');
+    // Localban:
+    // define('HOST', 'localhost');
+    // define('DATABASE', 'web2');
+    // define('USER', 'root');
+    // define('PASSWORD', '');
     
+    // weben:
+    define('HOST', 'mysql.omega');
+    define('DATABASE', 'sbda');
+    define('USER', 'sbda');
+    define('PASSWORD', 'GAMF2024');
+
     class Database {
         private static $connection = FALSE;
         

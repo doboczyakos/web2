@@ -1,32 +1,8 @@
 <h1>kliens</h1>
 
 <?php
-
-$url = "http://localhost/soap/server.php";
-
-$options = array(
-    "location" => $url,
-    "uri"      => $url,
-    //'keep_alive' => false,
-    // 'trace' => true,
-    //'connection_timeout' => 5000
-);
-
-try {
-    $kliens = new SoapClient(null, $options);
-
-    if (!$kliens) {
-        echo "SOAP error!<br>";
-        return;
-    }
-} catch (SoapFault $fault) {
-    echo "SOAP error!<br>";
-    return;
-}
-
-$headers = array("nev", "nem", "szuldat", "nemzet");
+    $headers = array("nev", "nem", "szuldat", "nemzet");
 ?>
-
 
 <table>
     <tr>
@@ -35,7 +11,8 @@ $headers = array("nev", "nem", "szuldat", "nemzet");
     <?php endforeach; ?>
     </tr>
 
-    <?php foreach ($kliens->adatok() as $data_cell): ?>
+    <?php foreach ($viewData as $data_cell): 
+            if (!is_array($data_cell) || count($data_cell) != 4) { continue; } ?>
         <tr>
         <?php foreach ($headers as $header): ?>
             <td><?php echo $data_cell[$header]; ?></td>
@@ -43,4 +20,3 @@ $headers = array("nev", "nem", "szuldat", "nemzet");
         </tr>
     <?php endforeach; ?>
 </table>
-
